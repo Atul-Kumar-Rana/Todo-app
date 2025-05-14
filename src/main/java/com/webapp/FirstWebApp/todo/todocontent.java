@@ -1,0 +1,75 @@
+package com.webapp.FirstWebApp.todo;
+
+import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
+import java.util.List;
+
+
+public class todocontent {
+    private  int id;
+    private String username;
+    private String Description;
+    private LocalDate targetdate;
+    private boolean done;
+
+    public todocontent(int id, String username, String description, LocalDate targetdate, boolean done) {
+        this.id = id;
+        this.username = username;
+        Description = description;
+        this.targetdate = targetdate;
+        this.done = done;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public LocalDate getTargetdate() {
+        return targetdate;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public void setTargetdate(LocalDate targetdate) {
+        this.targetdate = targetdate;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+
+    @Override
+    public String toString() {
+        return "todocontent{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", Description='" + Description + '\'' +
+                ", targetdate=" + targetdate +
+                ", done=" + done +
+                '}';
+    }
+
+}
