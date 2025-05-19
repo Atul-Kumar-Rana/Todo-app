@@ -1,5 +1,6 @@
 package com.webapp.FirstWebApp.todo;
 
+import jakarta.validation.constraints.Size;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -9,14 +10,15 @@ import java.util.List;
 public class todocontent {
     private  int id;
     private String username;
-    private String Description;
+    @Size(min=10,message = "enter atleast 10 alphabets")
+    private String description;
     private LocalDate targetdate;
     private boolean done;
 
     public todocontent(int id, String username, String description, LocalDate targetdate, boolean done) {
         this.id = id;
         this.username = username;
-        Description = description;
+        this.description = description;
         this.targetdate = targetdate;
         this.done = done;
     }
@@ -30,7 +32,7 @@ public class todocontent {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public LocalDate getTargetdate() {
@@ -50,7 +52,7 @@ public class todocontent {
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public void setTargetdate(LocalDate targetdate) {
@@ -66,7 +68,7 @@ public class todocontent {
         return "todocontent{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", Description='" + Description + '\'' +
+                ", Description='" + description + '\'' +
                 ", targetdate=" + targetdate +
                 ", done=" + done +
                 '}';

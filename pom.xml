@@ -15,7 +15,7 @@
 	<groupId>com.webapp</groupId>
 	<artifactId>FirstWebApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>FirstWebApp</name>
 	<description>Demo project for Spring Boot with JSP</description>
@@ -26,20 +26,24 @@
 
 	<dependencies>
 
-		<!-- Web and Servlet API -->
+		<!-- Spring Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- JSP Compilation Support -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+		<!-- Embedded Tomcat JSP support -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
-			<scope>provided</scope>
 		</dependency>
 
-		<!-- JSTL for JSP -->
+		<!-- JSTL -->
 		<dependency>
 			<groupId>jakarta.servlet.jsp.jstl</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
@@ -49,7 +53,26 @@
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 		</dependency>
 
-		<!-- Development tools -->
+		<!-- WebJars: jQuery & Bootstrap -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>5.1.3</version>
+		</dependency>
+
+		<!-- Optional: Spring Data JPA (if needed) -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>3.4.5</version>
+		</dependency>
+
+		<!-- Dev Tools (hot reload) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -57,28 +80,38 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- Testing -->
+		<!-- Spring Boot Testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>6.2.6</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- Spring Boot Maven Plugin -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<skip>true</skip> <!-- Needed to avoid error in WAR mode -->
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 
 	<repositories>
+		<!-- Maven Central (for WebJars, general dependencies) -->
+		<repository>
+			<id>central</id>
+			<name>Maven Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+
+		<!-- Spring Milestones (for Spring Boot RC versions) -->
 		<repository>
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
@@ -99,4 +132,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
+
 </project>
