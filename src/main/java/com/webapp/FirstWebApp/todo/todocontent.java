@@ -1,13 +1,18 @@
 package com.webapp.FirstWebApp.todo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.List;
 
-
+@Entity
 public class todocontent {
+    @Id
+    @GeneratedValue
     private  int id;
     private String username;
     @Size(min=10,message = "enter atleast 10 alphabets")

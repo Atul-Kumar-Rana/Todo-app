@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="<c:url value='/webjars/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css' />" />
 </head>
 <body class="container mt-4">
+<%@ include file="common/navigation.jspf" %>
+
 <div class="container">
+
     <form:form action="${mode}" method="post" modelAttribute="todocontent">
         <div class="mb-3">
             Description:
