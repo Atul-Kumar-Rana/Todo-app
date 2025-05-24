@@ -11,6 +11,9 @@ import java.util.List;
 
 @Entity
 public class todocontent {
+    public todocontent() {
+    }
+
     @Id
     @GeneratedValue
     private  int id;
